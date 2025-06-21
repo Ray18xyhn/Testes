@@ -2,7 +2,8 @@ import flet as ft
 
 
 def main(page: ft.Page):
-    counter = ft.Text("0", size=50, data=0)
+    counter = ft.Text("0", size=50, data=0, color=ft.colors.BLACK)
+    page.bgcolor = ft.colors.RED
 
     def increment_click(e):
         counter.data += 1
@@ -10,7 +11,7 @@ def main(page: ft.Page):
         counter.update()
 
     page.floating_action_button = ft.FloatingActionButton(
-        icon=ft.Icons.ADD, on_click=increment_click
+        icon=ft.icons.ADD, on_click=increment_click
     )
     page.add(
         ft.SafeArea(
@@ -18,7 +19,8 @@ def main(page: ft.Page):
                 counter,
                 alignment=ft.alignment.center,
             ),
-            expand=True,
+            height=100,
+            width=100
         )
     )
 
